@@ -1,0 +1,67 @@
+\documentclass[a4paper,oneside,12pt]{article}
+
+\renewcommand{\small}{\fontsize{12}{12pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{14}{14pt}\selectfont}
+\renewcommand{\large}{\fontsize{16}{16pt}\selectfont}
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[english,russian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[top=2cm,left=3cm,right=1cm,bottom=2.5cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{underscore}
+\usepackage{graphicx}
+\RequirePackage{totcount}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{ccaption}
+	\captiondelim{ --- }
+\usepackage{pdflscape}
+\usepackage{array}
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+\newtotcounter{citnum}
+\parindent=1.25cm
+\def\oldbibitem{} 
+	\let\oldbibitem=\bibitem
+\def\bibitem{
+	\stepcounter{citnum}\oldbibitem
+}
+\newcommand{\HRule}{\rule{4cm}{0.2mm}}
+\makeatletter
+\def\tableofcontents{\section*{\centering СОДЕРЖАНИЕ}\@starttoc{toc}}
+\makeatother
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{1.25cm}{-\baselineskip}{0.5\baselineskip}{\normalfont\large\bfseries}}
+\makeatother
+\makeatletter
+\renewcommand{\subsection}{\@startsection{subsection}{2}{1.25cm}{-\baselineskip}{0.5\baselineskip}{\normalfont\large\bfseries}}
+\makeatother
+\makeatletter
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{1.25cm}{-\baselineskip}{0.5\baselineskip}{\normalfont\normalsize\bfseries}}
+\makeatother
+\makeatletter
+\setlength\abovecaptionskip{2\p@}
+\setlength\belowcaptionskip{1\p@}
+\def\capfigure{figure}
+\def\captable{table}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \ifx\@captype\capfigure
+      \centering #1~--~#2 \par
+  \else
+      #1~--~#2 \par
+  \fi
+  \vskip\belowcaptionskip}
+\renewcommand{\@biblabel}[1]{#1}
+\makeatother
+\usepackage{tabularx}
+\begin{document}
+	\renewcommand{\figurename}{\small Рисунок}
+	\renewcommand{\tablename}{\small Таблица}
+	\input{title}\newpage
+	\tableofcontents\newpage
+\end{document}
