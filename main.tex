@@ -55,16 +55,20 @@
   \ifx\@captype\capfigure
       \centering #1~--~#2 \par
   \else
-      #1~--~#2 \par
+      \centering #1~--~#2 \par
   \fi
   \vskip\belowcaptionskip}
 \renewcommand{\@biblabel}[1]{#1}
 \makeatother
-\usepackage{tabularx}
+\usepackage{tabu}
 \begin{document}
 	\renewcommand{\figurename}{\small Рисунок}
 	\renewcommand{\tablename}{\small Таблица}
 	\input{title}\newpage
   \input{referat}\newpage
 	\tableofcontents\newpage
+  \input{signs}\newpage
+  \input{intro}\newpage
+  \input{chapter1}\newpage
+  \input{bibliography}\newpage
 \end{document}
