@@ -94,4 +94,66 @@
 
 Блок Контроллер принимает на вход слово W и выступает в роли ядра модуля, организующего связь между структурными элементами. Слово W передаётся в Кэш, откуда, если найдены, возвращаются правила для данного слова ([r]); в противном случае слово W передаётся Контроллером в Генератор запросов, использующий макеты (M) Хранилища макетов и кэшированные элементы E для генерации SPARQL-запроса Q, передаваемого в Сетевой интерфейс. Сетевой интерфейс взаимодействует с онтологией посредством двунаправленного потока сетевых пакетов (N), полученные данные (R) передаются в Анализатор ответов, преобразующий их в правила грамматики связей. Результат сохраняется в Кэш и передаётся в  Контроллер, возвращающий данные парсеру.
 
+\subsection{Алгоритмическая модель}
 
+Алгоритмическая модель изображает процесс работы алгоритма модуля при помощи блоков-подпроцессов и связей управления между ними. На рисунках \ref{fig:initialalgorithmA} и \ref{fig:initialalgorithmB} изображён алгоритм работы исходного парсера (прототипа без модификаций).
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=1.0]{images/initialalgorithmA.png}
+	\caption{\small Алгоритм работы прототипа (начало)}
+	\label{fig:initialalgorithmA}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=1.0]{images/initialalgorithmB.png}
+	\caption{\small Алгоритм работы прототипа (окончание)}
+	\label{fig:initialalgorithmB}
+\end{figure}
+
+Модифицированный алгоритм представлен на рисунках \ref{fig:modifiedalgorithmA} и \ref{fig:modifiedalgorithmB}, добавленные процессы помечены штриховкой, блоки 6 и 7 в сумме соответствуют блоку <<Интерфейс к онтологии>> структурной модели модифицированного прототипа (рисунок \ref{fig:modifiedstruct}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=1.0]{images/modifiedalgorithmA.png}
+	\caption{\small Алгоритм работы парсера с учётом предлагаемого решения (начало)}
+	\label{fig:modifiedalgorithmA}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=1.0]{images/modifiedalgorithmB.png}
+	\caption{\small Алгоритм работы парсера с учётом предлагаемого решения (окончание)}
+	\label{fig:modifiedalgorithmB}
+\end{figure}
+
+Декомпозиция блока 6 дана на рисунке \ref{fig:decomposedalgorithm1}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.95]{images/decomposedalgorithm1.png}
+	\caption{\small Декомпозиция блока 6}
+	\label{fig:decomposedalgorithm1}
+\end{figure}
+
+Декомпозиция блока 7 приведена на рисунке \ref{fig:decomposedalgorithm2}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=1.0]{images/decomposedalgorithm2.png}
+	\caption{\small Декомпозиция блока 7}
+	\label{fig:decomposedalgorithm2}
+\end{figure}
+
+\subsection{Результаты и выводы по главе 2}
+
+В процессе моделирования прототипа были достигнуты следующие результаты:
+\begin{list}{\labelitemi}{\leftmargin=1.5cm}
+	\item получены концептуальные модели сущностей, участвующих в работе прототипа;
+	\item построена иерархия информации внутри модифицированного прототипа;
+	\item получены структурные модели модифицированного прототипа и добавляемого блока;
+	\item получены алгоритмические модели работы исходного и модифицируемого прототипа, а также алгоритмы работы добавляемого блока.
+\end{list}
+
+\textbf{Вывод}: в результате моделирования получено новое знание в виде пакета моделей. Полученной информации достаточно для перехода к стадии проектирования предлагаемого решения.
